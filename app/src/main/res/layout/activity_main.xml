@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/billTotTax"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/bill_total_with_tax"
+        android:textColor="#6A6868"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/billTyped"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tipPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/tip_percent"
+        android:textColor="#6A6868"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billTotTax" />
+
+    <EditText
+        android:id="@+id/billTyped"
+        android:layout_width="194dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:background="#E6F4E2"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:labelFor="@id/billTotTax"
+        android:textAlignment="viewEnd"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="DuplicateSpeakableTextCheck"
+        tools:text="bill amount" />
+
+    <RadioGroup
+        android:id="@+id/tipPercentRG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipPercent">
+
+        <RadioButton
+            android:id="@+id/twelveRB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="radioClicked"
+            android:text="@string/_12"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/fifteenRB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="radioClicked"
+            android:text="@string/_15"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/eighteenRB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="radioClicked"
+            android:text="@string/_18"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/twentyRB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="radioClicked"
+            android:text="@string/_20"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tipAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/tip_amount"
+        android:textColor="#6A6868"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipPercentRG" />
+
+    <TextView
+        android:id="@+id/totWithTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/total_with_tip"
+        android:textColor="#6A6868"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmount" />
+
+    <TextView
+        android:id="@+id/tipAmountHere"
+        android:layout_width="165dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="#E3E0E0"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tipAmount"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Tip Amount Here" />
+
+    <TextView
+        android:id="@+id/totWithTipHere"
+        android:layout_width="164dp"
+        android:layout_height="35dp"
+        android:background="#E3E0E0"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/totWithTip"
+        app:layout_constraintStart_toStartOf="@+id/tipAmountHere"
+        tools:text="@string/total_with_tip_here" />
+
+    <TextView
+        android:id="@+id/numPeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/number_of_people"
+        android:textColor="#6A6868"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totWithTip" />
+
+    <EditText
+        android:id="@+id/numPeopleHere"
+        android:layout_width="99dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:background="#E6F4E2"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:labelFor="@id/numPeople"
+        android:textAlignment="viewEnd"
+        android:textSize="22sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/numPeople"
+        app:layout_constraintStart_toEndOf="@+id/numPeople"
+        tools:ignore="DuplicateSpeakableTextCheck"
+        tools:text="#" />
+
+    <Button
+        android:id="@+id/goButton"
+        android:layout_width="90dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="42dp"
+        android:onClick="buttonClicked"
+        android:text="@string/go"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/totPerPersonHere"
+        app:layout_constraintStart_toEndOf="@+id/numPeopleHere"
+        app:layout_constraintTop_toBottomOf="@+id/totWithTipHere" />
+
+    <TextView
+        android:id="@+id/totPerPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="46dp"
+        android:text="@string/total_per_person"
+        android:textColor="#6A6868"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/numPeople" />
+
+    <TextView
+        android:id="@+id/overage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/overage"
+        android:textColor="#6A6868"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBaseline_toBaselineOf="@+id/overageHere"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/totPerPersonHere"
+        android:layout_width="198dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="19dp"
+        android:background="#E3E0E0"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/numPeopleHere"
+        app:layout_constraintTop_toBottomOf="@+id/numPeopleHere"
+        tools:text="Total per person here" />
+
+    <TextView
+        android:id="@+id/overageHere"
+        android:layout_width="198dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="28dp"
+        android:background="#E3E0E0"
+        android:textAlignment="viewEnd"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/totPerPersonHere"
+        app:layout_constraintTop_toBottomOf="@+id/totPerPersonHere"
+        tools:text="Overage Here" />
+
+    <Button
+        android:id="@+id/clearButton"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="buttonClicked"
+        android:text="@string/clear"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
